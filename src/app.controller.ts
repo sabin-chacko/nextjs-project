@@ -48,8 +48,9 @@ export class AppController {
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
   @Post('updatetodo/:id')
-  updatetodo(@Param('id') id: string,@Request() req,@Body() updateTodoDto:updateTodoDto) {
-    return this.todoService.updatetodo(id,updateTodoDto);
+  async updatetodo(@Param('id') id: string,@Request() req,@Body() updateTodoDto:updateTodoDto) {
+    await this.todoService.updatetodo(id,updateTodoDto);
+    return this.todoService.findone(id);
   }
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)

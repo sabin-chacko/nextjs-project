@@ -22,4 +22,7 @@ export class TodoService {
       // return await this.tododataModel.findOneAndUpdate(todoitemdto)
       return await this.tododataModel.findByIdAndUpdate(id,updateTodoDto)
   }
+  async findone(id:string):Promise<Todo>{
+    return await this.tododataModel.findById(id)
+  }
 }
