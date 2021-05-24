@@ -5,12 +5,8 @@ export class updateTodoDto {
     @ApiProperty()  
     todo_item: string;
   
-    @ApiProperty({enum:["Pending,InProgress","Completed"]})    
+    @ApiProperty({enum:["Pending","InProgress","Completed"]})    
     status: string;
-    
-    @ApiProperty()  
-    User_id: string;
-
     
 }
 

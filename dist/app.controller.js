@@ -31,27 +31,20 @@ let AppController = class AppController {
     async login(LoginUserDto) {
         return this.authService.login(LoginUserDto);
     }
-    getalluser(req) {
-        return this.usersService.findAll();
-    }
     registerUser(CreateUserDto) {
         return this.usersService.create(CreateUserDto);
     }
-    createtodo(req, updateTodoDto) {
-        var user = this.usersService.findOne(req.user.username);
+    async createtodo(req, updateTodoDto) {
+        var user = await this.usersService.findOne(req.user.username);
         var todoitem = new todo_dto_1.todoitemdto(updateTodoDto, user["_id"]);
         return this.todoService.create(todoitem);
     }
-    updatetodo(params, req, updateTodoDto) {
-        var user = this.usersService.findOne(req.user.username);
-        var todoitem = new todo_dto_1.todoitemdto(updateTodoDto, user["_id"]);
-        return this.todoService.updatetodo(todoitem);
+    updatetodo(id, req, updateTodoDto) {
+        return this.todoService.updatetodo(id, updateTodoDto);
     }
-    Alltodo(req) {
-        var user = this.usersService.findOne(req.user.username);
-        console.log(this.usersService.findOne(req.user.username));
-        console.log(user["_id"]);
-        return this.todoService.findAll(user['_id']);
+    async Alltodo(req) {
+        const userprom = await this.usersService.findOne(req.user.username);
+        return this.todoService.findAll(userprom['_id']);
     }
 };
 __decorate([
@@ -62,15 +55,6 @@ __decorate([
     __metadata("design:paramtypes", [user_dto_1.LoginUserDto]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "login", null);
-__decorate([
-    swagger_1.ApiBearerAuth(),
-    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
-    common_1.Get('getalluser'),
-    __param(0, common_1.Request()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "getalluser", null);
 __decorate([
     swagger_1.ApiBearerAuth(),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
@@ -87,15 +71,15 @@ __decorate([
     __param(0, common_1.Request()), __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, todo_dto_1.updateTodoDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], AppController.prototype, "createtodo", null);
 __decorate([
     swagger_1.ApiBearerAuth(),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     common_1.Post('updatetodo/:id'),
-    __param(0, common_1.Param()), __param(1, common_1.Request()), __param(2, common_1.Body()),
+    __param(0, common_1.Param('id')), __param(1, common_1.Request()), __param(2, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object, todo_dto_1.updateTodoDto]),
+    __metadata("design:paramtypes", [String, Object, todo_dto_1.updateTodoDto]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "updatetodo", null);
 __decorate([
@@ -105,7 +89,7 @@ __decorate([
     __param(0, common_1.Request()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], AppController.prototype, "Alltodo", null);
 AppController = __decorate([
     common_1.Controller(),

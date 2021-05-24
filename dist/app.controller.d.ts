@@ -11,9 +11,8 @@ export declare class AppController {
     login(LoginUserDto: LoginUserDto): Promise<{
         access_token: string;
     }>;
-    getalluser(req: any): Promise<import("./users/schemas/user.schema").User[]>;
     registerUser(CreateUserDto: CreateUserDto): Promise<import("./users/schemas/user.schema").User>;
     createtodo(req: any, updateTodoDto: updateTodoDto): Promise<import("./todo/schemas/todo.schema").Todo>;
-    updatetodo(params: any, req: any, updateTodoDto: updateTodoDto): Promise<import("./todo/schemas/todo.schema").Todo>;
+    updatetodo(id: string, req: any, updateTodoDto: updateTodoDto): Promise<import("./todo/schemas/todo.schema").Todo>;
     Alltodo(req: any): Promise<import("./todo/schemas/todo.schema").Todo[]>;
 }

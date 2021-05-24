@@ -18,13 +18,9 @@ __decorate([
     __metadata("design:type", String)
 ], updateTodoDto.prototype, "todo_item", void 0);
 __decorate([
-    swagger_1.ApiProperty({ enum: ["Pending,InProgress", "Completed"] }),
+    swagger_1.ApiProperty({ enum: ["Pending", "InProgress", "Completed"] }),
     __metadata("design:type", String)
 ], updateTodoDto.prototype, "status", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", String)
-], updateTodoDto.prototype, "User_id", void 0);
 exports.updateTodoDto = updateTodoDto;
 class todoitemdto {
     constructor(updateTodoDto, userid) {

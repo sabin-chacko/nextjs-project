@@ -1867,8 +1867,8 @@
         "affectsGlobalScope": false
       },
       "../src/todo/dto/todo.dto.ts": {
-        "version": "6ee96d0d83e661d318f84f43df01b7937362a645480e5bd62efaf32a4e847334",
-        "signature": "b1faf20e03e83a31cf2b8d1a5fdc1382fadb3bfd944a82aeac2bd0e2d20f8999",
+        "version": "d998e77bbcae0245dd097d220a694b3ce721e9c716b16656a58b5b34a10bc930",
+        "signature": "78e6fddd570f97832f4859a1ec6c1fb0e9ed428eec6212bc41201bcfb34c5138",
         "affectsGlobalScope": false
       },
       "../src/todo/schemas/todo.schema.ts": {
@@ -1877,13 +1877,13 @@
         "affectsGlobalScope": false
       },
       "../src/todo/todo.service.ts": {
-        "version": "72aed65febb6319e961ce1d350930b14fde8683e9070bc554e4d2850eb70c7f5",
-        "signature": "fc6a9cb10c892a076003293c05abdb37e75e85bc6e80ae31fc903f97f884135f",
+        "version": "3a105567f9ca227cba2044301a5a9487e366e3160e74d6faf74b07fbaf1a5a5e",
+        "signature": "03da95c499de9fc8ba8a4e6c34ec0844adeb6a0b2e5b91788f872004c703eda1",
         "affectsGlobalScope": false
       },
       "../src/app.controller.ts": {
-        "version": "756b0116742cfb8f80f9fdb19d6322c48feddb7be5cdc4b54c615417f043967f",
-        "signature": "59f2fa70a6f4db832a84171fc9f4c97e968e9639c4d86b414afe90bfcdb7e948",
+        "version": "9e8f449430ef32094db2dad8bc449731539fcfbdb5d40c2ba37621ce8871e56d",
+        "signature": "22a2df0fdb0269c21d8e79b357da6354e400983ba64829da3aa795c61e346931",
         "affectsGlobalScope": false
       },
       "../src/app.service.ts": {
@@ -1932,7 +1932,7 @@
         "affectsGlobalScope": false
       },
       "../src/auth/auth.module.ts": {
-        "version": "6ca3cd5c77a114805f2a38dd262b0982c7428e6644c028f5afbe0c5818f5ac45",
+        "version": "c690d0717a8d3bb7c77086b205e456ceeb1e5a7460f5df435083add9d3b5ca15",
         "signature": "a28b5c0c372fb375910b3fe3c3ce4331509bc18ccef7cc39c9ee9d8daf8225d1",
         "affectsGlobalScope": false
       },
@@ -2129,11 +2129,6 @@
       "../src/main.ts": {
         "version": "10fa944272a47b58fa462fc43c114b26e3eb0650d4afea4c4d074c5cc5eef841",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-        "affectsGlobalScope": false
-      },
-      "../src/todo/create-todo.dto.ts": {
-        "version": "69e2de6fb81e3fb0a4a0392216aaa56061d8fac5f402557fbbf3f71d790372a7",
-        "signature": "0d33b3f50c4f65ebaa8082af0577fcf22f107b4f9000dc17193762c3037a9831",
         "affectsGlobalScope": false
       },
       "../node_modules/@babel/types/lib/index.d.ts": {

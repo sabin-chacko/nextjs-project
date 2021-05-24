@@ -28,8 +28,8 @@ let TodoService = class TodoService {
     async findAll(userid) {
         return await this.tododataModel.find({ "User_id": userid }).exec();
     }
-    async updatetodo(todoitemdto) {
-        return await this.tododataModel.findOneAndUpdate(todoitemdto);
+    async updatetodo(id, updateTodoDto) {
+        return await this.tododataModel.findByIdAndUpdate(id, updateTodoDto);
     }
 };
 TodoService = __decorate([

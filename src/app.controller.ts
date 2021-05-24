@@ -22,12 +22,12 @@ export class AppController {
     return this.authService.login(LoginUserDto);
   }
 
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
-  @Get('getalluser')
-  getalluser(@Request() req){
-    return this.usersService.findAll()
-  }
+  // @ApiBearerAuth()
+  // @UseGuards(JwtAuthGuard)
+  // @Get('getalluser')
+  // getalluser(@Request() req){
+  //   return this.usersService.findAll()
+  // }
 
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
@@ -39,8 +39,8 @@ export class AppController {
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
   @Post('createtodo')
-  createtodo(@Request() req,@Body() updateTodoDto:updateTodoDto) {
-    var user = this.usersService.findOne(req.user.username)
+  async createtodo(@Request() req,@Body() updateTodoDto:updateTodoDto) {
+    var user = await this.usersService.findOne(req.user.username)
     var todoitem = new todoitemdto( updateTodoDto,user["_id"])
     return this.todoService.create(todoitem);
   }
@@ -48,18 +48,20 @@ export class AppController {
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
   @Post('updatetodo/:id')
-  updatetodo(@Param() params ,@Request() req,@Body() updateTodoDto:updateTodoDto) {
-    var user = this.usersService.findOne(req.user.username)
-    var todoitem = new todoitemdto(updateTodoDto,user["_id"])
-    return this.todoService.updatetodo(todoitem);
+  updatetodo(@Param('id') id: string,@Request() req,@Body() updateTodoDto:updateTodoDto) {
+    return this.todoService.updatetodo(id,updateTodoDto);
   }
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
   @Get('Alltodos')
-  Alltodo(@Request() req) {
-    var user = this.usersService.findOne(req.user.username)
-    console.log(this.usersService.findOne(req.user.username))
-    console.log(user["_id"])
-    return this.todoService.findAll(user['_id']);
+  async Alltodo(@Request() req) {
+    const userprom = await this.usersService.findOne(req.user.username)
+    return this.todoService.findAll(userprom['_id']);
+    // const self = this
+    // this.usersService.findOne(req.user.username)
+    // .then(function (user){
+    //   return self.todoService.findAll(user['_id']);
+    // })
+
   }
 }

@@ -18,7 +18,8 @@ export class TodoService {
     return await this.tododataModel.find({"User_id":userid}).exec();
   }
 
-  async updatetodo(todoitemdto: todoitemdto):Promise<Todo>{
-      return await this.tododataModel.findOneAndUpdate(todoitemdto)
+  async updatetodo(id:string,updateTodoDto: updateTodoDto):Promise<Todo>{
+      // return await this.tododataModel.findOneAndUpdate(todoitemdto)
+      return await this.tododataModel.findByIdAndUpdate(id,updateTodoDto)
   }
 }
